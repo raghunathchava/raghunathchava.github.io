@@ -97,7 +97,7 @@ export function Hero({ variant = "home" }: HeroProps = {}) {
               Download Resume
             </a>
             <a
-              href="mailto:raghunath.chava@gmail.com"
+              href="mailto:info@raghunathchava.com"
               onClick={() => handleCTAClick("contact")}
               className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border text-foreground rounded-lg font-medium hover:bg-muted transition-colors"
             >
@@ -129,7 +129,7 @@ export function Hero({ variant = "home" }: HeroProps = {}) {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="mailto:raghunath.chava@gmail.com"
+              href="mailto:info@raghunathchava.com"
               onClick={() => handleCTAClick("email")}
               className="p-3 rounded-full bg-card border border-border hover:bg-muted transition-colors"
               aria-label="Email"

@@ -6,27 +6,27 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3003:3003"
-      - "24678:24678"  # Vite HMR port
-    container_name: saraise-website
+      - "3004:3004"
+      - "24679:24678"  # Vite HMR port (mapped to different host port)
+    container_name: raghunathchava
     environment:
       - NODE_ENV=development
       - VITE_HMR_HOST=localhost
       - VITE_HMR_PORT=24678
       - VITE_HMR_PROTOCOL=ws
-    volumes:
-      - .:/app
-      - /app/node_modules
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3003"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3004"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 10s
     networks:
-      - saraise-network
+      - raghunathchava-network
 
 networks:
-  saraise-network:
+  raghunathchava-network:
     driver: bridge

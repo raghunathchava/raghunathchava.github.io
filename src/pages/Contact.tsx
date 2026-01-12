@@ -45,10 +45,10 @@ export function Contact() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold mb-2">Email</h3>
                       <a
-                        href="mailto:raghunath.chava@gmail.com"
+                        href="mailto:info@raghunathchava.com"
                         className="text-primary hover:underline"
                       >
-                        raghunath.chava@gmail.com
+                        info@raghunathchava.com
                       </a>
                       <p className="text-sm text-muted-foreground mt-2">
                         For inquiries, collaborations, and speaking opportunities
@@ -142,7 +142,7 @@ export function Contact() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="mailto:raghunath.chava@gmail.com"
+                  href="mailto:info@raghunathchava.com"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
                 >
                   <Mail className="w-5 h-5" />

@@ -39,7 +39,7 @@ export const personSchema: SchemaMarkup = {
     url: BASE_URL,
     jobTitle: "Sr Director – GenAI Platform Operations | Founder, BuildWorks.AI",
     description: "Leading production-grade GenAI platform operations with full ownership of reliability, LLMOps, Responsible AI enforcement, and financial governance",
-    email: "raghunath.chava@gmail.com",
+    email: "info@raghunathchava.com",
     telephone: "+919666953366",
     address: {
       "@type": "PostalAddress",
@@ -772,7 +772,7 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
       ],
     },
     intent: "informational",
-    schema: [organizationSchema],
+    schema: [personSchema],
     targetICP: ["ceo", "cto"],
     primaryCTA: "Learn More",
   },
@@ -1165,7 +1165,7 @@ export function getPageSEO(path: string): PageSEO {
       longtail: ["Raghunath Chava ERP platform"],
     },
     intent: "informational",
-    schema: [organizationSchema],
+    schema: [personSchema],
     openGraph: {
       title: `${SITE_NAME} | ${path.split("/").pop() || "Page"}`,
       description: `${SITE_NAME} - AI-ready, open-source ERP platform.`,

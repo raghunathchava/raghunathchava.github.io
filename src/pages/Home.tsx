@@ -182,7 +182,7 @@ export function Home() {
                   View Experience
                 </Link>
                 <a
-                  href="mailto:raghunath.chava@gmail.com"
+                  href="mailto:info@raghunathchava.com"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border text-foreground rounded-lg font-medium hover:bg-muted transition-colors"
                 >
                   Get In Touch

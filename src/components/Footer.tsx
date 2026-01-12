@@ -37,7 +37,7 @@ export function Footer() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="mailto:raghunath.chava@gmail.com"
+                href="mailto:info@raghunathchava.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Email"
               >
@@ -100,10 +100,10 @@ export function Footer() {
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:raghunath.chava@gmail.com"
+                  href="mailto:info@raghunathchava.com"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  raghunath.chava@gmail.com
+                  info@raghunathchava.com
                 </a>
               </li>
               <li className="flex items-start gap-2">

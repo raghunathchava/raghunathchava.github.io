@@ -112,11 +112,6 @@ const EnterpriseIndex = lazy(() =>
     default: m.EnterpriseOverview,
   })),
 );
-const EnterpriseSecurity = lazy(() =>
-  import("./pages/Enterprise/Security").then((m) => ({
-    default: m.EnterpriseSecurity,
-  })),
-);
 const EnterpriseSupport = lazy(() =>
   import("./pages/Enterprise/Support").then((m) => ({
     default: m.EnterpriseSupport,
@@ -179,11 +174,6 @@ const AIAgentsInERP = lazy(() =>
     default: m.AIAgentsInERP,
   })),
 );
-const ERPSecurityBestPractices = lazy(() =>
-  import("./pages/Resources/Blog/ERPSecurityBestPractices").then((m) => ({
-    default: m.ERPSecurityBestPractices,
-  })),
-);
 const ROICalculation = lazy(() =>
   import("./pages/Resources/Blog/ROICalculation").then((m) => ({
     default: m.ROICalculation,
@@ -201,9 +191,6 @@ const PrivacyPolicy = lazy(() =>
 );
 const TermsOfService = lazy(() =>
   import("./pages/TermsOfService").then((m) => ({ default: m.TermsOfService })),
-);
-const SecurityPolicy = lazy(() =>
-  import("./pages/SecurityPolicy").then((m) => ({ default: m.SecurityPolicy })),
 );
 const Compliance = lazy(() =>
   import("./pages/Compliance").then((m) => ({ default: m.Compliance })),
@@ -287,10 +274,6 @@ function App() {
                   {/* Enterprise */}
                   <Route path="/enterprise" element={<EnterpriseIndex />} />
                   <Route
-                    path="/enterprise/security"
-                    element={<EnterpriseSecurity />}
-                  />
-                  <Route
                     path="/enterprise/compliance"
                     element={<EnterpriseCompliance />}
                   />
@@ -334,8 +317,6 @@ function App() {
                     element={<AIAgentsInERP />}
                   />
                   <Route
-                    path="/resources/blog/erp-security-best-practices"
-                    element={<ERPSecurityBestPractices />}
                   />
                   <Route
                     path="/resources/blog/roi-calculation"
@@ -357,7 +338,6 @@ function App() {
                   {/* Legal */}
                   <Route path="/privacy" element={<PrivacyPolicy />} />
                   <Route path="/terms" element={<TermsOfService />} />
-                  <Route path="/security" element={<SecurityPolicy />} />
                   <Route path="/compliance" element={<Compliance />} />
 
                   {/* Design Samples */}

@@ -211,7 +211,7 @@ export function About() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="mailto:raghunath.chava@gmail.com"
+                  href="mailto:info@raghunathchava.com"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
                 >
                   Get In Touch
