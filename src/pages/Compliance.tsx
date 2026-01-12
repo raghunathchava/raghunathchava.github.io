@@ -36,7 +36,7 @@ const complianceFrameworks = [
 
 export function Compliance() {
   return (
-    <div className="min-h-screen bg-background/20 backdrop-blur-sm text-foreground">
+    <div className="min-h-screen">
       <Navigation />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 max-w-4xl">
         <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -50,7 +50,7 @@ export function Compliance() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">1. Compliance Overview</h2>
             <p className="text-muted-foreground leading-relaxed">
-              BuildFlow Consultancy Private Limited is committed to maintaining
+              BuildWorks.AI is committed to maintaining
               compliance with applicable laws, regulations, and industry
               standards. Raghunath Chava is designed with compliance requirements in
               mind, enabling organizations to meet their regulatory obligations.
@@ -338,7 +338,7 @@ export function Compliance() {
                 </a>
               </p>
               <p className="text-muted-foreground mb-2">
-                <strong>Company:</strong> BuildFlow Consultancy Private Limited
+                <strong>Company:</strong> BuildWorks.AI
               </p>
               <p className="text-muted-foreground mb-2">
                 <strong>CIN:</strong> U62099TS2025PTC201319

@@ -766,7 +766,7 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
         "enterprise AI company",
       ],
       longtail: [
-        "about BuildFlow Consultancy",
+        "about BuildWorks.AI",
         "Raghunath Chava ERP company information",
         "enterprise AI software company India",
       ],

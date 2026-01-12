@@ -25,7 +25,7 @@ export function CompanyContact() {
     <>
       <SEO {...seo} />
       <Navigation />
-      <main className="min-h-screen bg-background/20 backdrop-blur-sm text-foreground">
+      <main className="min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           {/* Hero Section */}
           <div className="text-center mb-16">
@@ -70,7 +70,7 @@ export function CompanyContact() {
                 <div>
                   <h3 className="text-lg font-bold mb-2">Company</h3>
                   <p className="text-muted-foreground mb-2">
-                    BuildFlow Consultancy Private Limited
+                    BuildWorks.AI
                   </p>
                   <p className="text-sm text-muted-foreground">
                     CIN: U62099TS2025PTC201319
@@ -90,7 +90,7 @@ export function CompanyContact() {
                 <div>
                   <h3 className="text-xl font-bold mb-4">Address</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    BuildFlow Consultancy Private Limited
+                    BuildWorks.AI
                     <br />
                     Hafeez Pet, Miyapur
                     <br />
@@ -120,21 +120,6 @@ export function CompanyContact() {
                 <p className="text-sm text-muted-foreground">
                   Questions about Raghunath Chava, features, licensing, or general
                   information
-                </p>
-              </div>
-
-              <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="text-lg font-bold mb-2">Security Issues</h3>
-                <p className="text-muted-foreground mb-2">
-                  <a
-                    href="mailto:security@buildworks.ai"
-                    className="text-deepBlue hover:underline"
-                  >
-                    security@buildworks.ai
-                  </a>
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Report security vulnerabilities or security-related concerns
                 </p>
               </div>
 
@@ -284,10 +269,6 @@ export function CompanyContact() {
                 We aim to respond to all inquiries within:
               </p>
               <ul className="space-y-2 text-muted-foreground">
-                <li>
-                  <strong className="text-foreground">Security Issues:</strong>{" "}
-                  Within 48 hours
-                </li>
                 <li>
                   <strong className="text-foreground">
                     General Inquiries:

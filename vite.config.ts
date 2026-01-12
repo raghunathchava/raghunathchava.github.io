@@ -15,12 +15,15 @@ export default defineConfig({
   },
   server: {
     port: 3004,
-    host: "0.0.0.0",
+    host: "0.0.0.0", // Listen on all interfaces inside container
     strictPort: false,
     hmr: {
-      host: process.env.VITE_HMR_HOST || "localhost",
-      port: parseInt(process.env.VITE_HMR_PORT || "24678"),
-      protocol: process.env.VITE_HMR_PROTOCOL || "ws",
+      // HMR uses the same port as the dev server (3004)
+      // WebSocket upgrade happens on the same port
+    },
+    watch: {
+      // Watch for file changes when using volumes
+      usePolling: true,
     },
   },
   build: {

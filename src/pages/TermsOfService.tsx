@@ -6,7 +6,7 @@ import { Footer } from "../components/Footer";
 
 export function TermsOfService() {
   return (
-    <div className="min-h-screen bg-background/20 backdrop-blur-sm text-foreground">
+    <div className="min-h-screen">
       <Navigation />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 max-w-4xl">
         <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -21,7 +21,7 @@ export function TermsOfService() {
             <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
             <p className="text-muted-foreground leading-relaxed">
               By accessing or using Raghunath Chava website, software, documentation, or
-              services provided by BuildFlow Consultancy Private Limited ("we,"
+              services provided by BuildWorks.AI ("we,"
               "our," or "us"), you agree to be bound by these Terms of Service
               ("Terms"). If you do not agree to these Terms, you may not use our
               services.
@@ -33,7 +33,7 @@ export function TermsOfService() {
               2. Description of Service
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Raghunath Chava is an open-source ERP software platform. We provide:
+              BuildWorks.AI provides GenAI platform operations and open-source AI governance platforms. We provide:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
               <li>Open-source software code available on GitHub</li>
@@ -81,7 +81,7 @@ export function TermsOfService() {
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-4">
               The Raghunath Chava name, logo, trademarks, and website content (excluding
-              open-source code) are the property of BuildFlow Consultancy
+              open-source code) are the property of BuildWorks.AI
               Private Limited. You may not use our trademarks without prior
               written permission.
             </p>
@@ -91,7 +91,7 @@ export function TermsOfService() {
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-4">
               By contributing code, documentation, or other materials to
-              Raghunath Chava, you grant us a perpetual, worldwide, non-exclusive,
+              our platforms, you grant us a perpetual, worldwide, non-exclusive,
               royalty-free right to use, modify, and distribute
               your contributions.
             </p>
@@ -186,7 +186,7 @@ export function TermsOfService() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">9. Indemnification</h2>
             <p className="text-muted-foreground leading-relaxed">
-              You agree to indemnify, defend, and hold harmless BuildFlow
+              You agree to indemnify, defend, and hold harmless BuildWorks.AI
               Consultancy Private Limited and its officers, directors,
               employees, and agents from any claims, damages, losses,
               liabilities, and expenses (including legal fees) arising from your
@@ -263,7 +263,7 @@ export function TermsOfService() {
                 </a>
               </p>
               <p className="text-muted-foreground mb-2">
-                <strong>Company:</strong> BuildFlow Consultancy Private Limited
+                <strong>Company:</strong> BuildWorks.AI
               </p>
               <p className="text-muted-foreground mb-2">
                 <strong>CIN:</strong> U62099TS2025PTC201319

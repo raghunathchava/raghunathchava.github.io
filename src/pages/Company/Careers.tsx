@@ -22,7 +22,7 @@ export function CompanyCareers() {
     <>
       <SEO {...seo} />
       <Navigation />
-      <main className="min-h-screen bg-background/20 backdrop-blur-sm text-foreground flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-2xl mx-auto">
             <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-deepBlue/10 to-teal/10 flex items-center justify-center mx-auto mb-6">

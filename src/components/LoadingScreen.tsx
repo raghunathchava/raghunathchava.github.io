@@ -41,7 +41,7 @@ export function LoadingScreen() {
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-deepBlue to-teal bg-clip-text text-transparent mb-2">
           Raghunath Chava
         </h1>
-        <p className="text-muted-foreground">Modern Open-Source ERP</p>
+        <p className="text-muted-foreground">GenAI Platform Operations</p>
       </div>
     </div>
   );

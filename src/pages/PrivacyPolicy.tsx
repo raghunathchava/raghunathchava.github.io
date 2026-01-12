@@ -6,7 +6,7 @@ import { Footer } from "../components/Footer";
 
 export function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-background/20 backdrop-blur-sm text-foreground">
+    <div className="min-h-screen">
       <Navigation />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 max-w-4xl">
         <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -20,8 +20,8 @@ export function PrivacyPolicy() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              BuildFlow Consultancy Private Limited ("we," "our," or "us")
-              operates Raghunath Chava, an open-source ERP software platform. This
+              BuildWorks.AI ("we," "our," or "us")
+              operates BuildWorks.AI, providing GenAI platform operations and open-source AI governance platforms. This
               Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you use our website and services.
             </p>
@@ -264,7 +264,7 @@ export function PrivacyPolicy() {
                 </a>
               </p>
               <p className="text-muted-foreground mb-2">
-                <strong>Company:</strong> BuildFlow Consultancy Private Limited
+                <strong>Company:</strong> BuildWorks.AI
               </p>
               <p className="text-muted-foreground mb-2">
                 <strong>CIN:</strong> U62099TS2025PTC201319

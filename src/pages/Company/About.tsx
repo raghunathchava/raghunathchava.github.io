@@ -26,7 +26,7 @@ export function CompanyAbout() {
     <>
       <SEO {...seo} />
       <Navigation />
-      <main className="min-h-screen bg-background/20 backdrop-blur-sm text-foreground">
+      <main className="min-h-screen">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           {/* Hero Section */}
           <div className="text-center mb-16">
@@ -34,7 +34,7 @@ export function CompanyAbout() {
               About BuildWorks.AI
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              BuildWorks.AI (BuildFlow Consultancy Private Limited) builds
+              BuildWorks.AI builds
               enterprise-grade AI products with a commitment to open source
               innovation. We believe in democratizing AI for businesses
               worldwide.
@@ -85,7 +85,7 @@ export function CompanyAbout() {
             <div className="bg-card border border-border rounded-lg p-6 text-center">
               <Building2 className="w-8 h-8 text-deepBlue mx-auto mb-4" />
               <h3 className="text-lg font-bold mb-2">
-                BuildFlow Consultancy Pvt Ltd
+                BuildWorks.AI
               </h3>
               <p className="text-sm text-muted-foreground">
                 Registered Company
@@ -332,7 +332,7 @@ export function CompanyAbout() {
                 <div>
                   <p className="text-muted-foreground mb-1">
                     <strong className="text-foreground">Company Name:</strong>{" "}
-                    BuildFlow Consultancy Private Limited
+                    BuildWorks.AI
                   </p>
                   <p className="text-muted-foreground mb-1">
                     <strong className="text-foreground">CIN:</strong>{" "}

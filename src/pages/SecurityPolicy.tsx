@@ -30,7 +30,7 @@ const securityFeatures = [
 
 export function SecurityPolicy() {
   return (
-    <div className="min-h-screen bg-background/20 backdrop-blur-sm text-foreground">
+    <div className="min-h-screen">
       <Navigation />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 max-w-4xl">
         <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -44,8 +44,8 @@ export function SecurityPolicy() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">1. Security Commitment</h2>
             <p className="text-muted-foreground leading-relaxed">
-              BuildFlow Consultancy Private Limited is committed to maintaining
-              the security and integrity of Raghunath Chava. We implement
+              BuildWorks.AI is committed to maintaining
+              the security and integrity of our platforms. We implement
               industry-standard security practices and continuously improve our
               security posture to protect our users and their data.
             </p>
@@ -314,7 +314,7 @@ export function SecurityPolicy() {
                 </a>
               </p>
               <p className="text-muted-foreground mb-2">
-                <strong>Company:</strong> BuildFlow Consultancy Private Limited
+                <strong>Company:</strong> BuildWorks.AI
               </p>
               <p className="text-muted-foreground mb-2">
                 <strong>CIN:</strong> U62099TS2025PTC201319
