@@ -1,0 +1,89 @@
+# SPDX-License-Identifier: PROPRIETARY
+# ===================================
+# SARAISE Website Pre-Commit Configuration
+# ===================================
+# MANDATORY — ALL COMMITS MUST PASS
+# Install: pip install pre-commit && pre-commit install
+# Run manually: pre-commit run --all-files
+# ===================================
+
+repos:
+  # ===================================
+  # TypeScript / Frontend Quality
+  # ===================================
+  - repo: local
+    hooks:
+      - id: typescript-check
+        name: "TypeScript: Type Check (ZERO ERRORS)"
+        entry: bash -c 'npx tsc --noEmit'
+        language: system
+        files: ^src/.*\.(ts|tsx)$
+        pass_filenames: false
+        always_run: true
+
+      - id: eslint-check
+        name: "TypeScript: ESLint (ZERO WARNINGS)"
+        entry: bash -c 'npm run lint'
+        language: system
+        files: ^src/.*\.(ts|tsx)$
+        pass_filenames: false
+        always_run: true
+
+      - id: prettier-check
+        name: "Code: Prettier Format Check"
+        entry: bash -c 'npx prettier --check "src/**/*.{ts,tsx,json,css,md}"'
+        language: system
+        files: ^src/.*\.(ts|tsx|json|css|md)$
+        pass_filenames: false
+
+  # ===================================
+  # File Quality Checks
+  # ===================================
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: "File: Remove Trailing Whitespace"
+        args: [--markdown-linebreak-ext=md]
+
+      - id: end-of-file-fixer
+        name: "File: Ensure EOF Newline"
+
+      - id: check-yaml
+        name: "File: YAML Validation"
+        args: ["--allow-multiple-documents"]
+
+      - id: check-json
+        name: "File: JSON Validation"
+
+      - id: check-merge-conflict
+        name: "File: Merge Conflict Detection"
+
+      - id: check-added-large-files
+        name: "File: Large File Detection"
+        args: ["--maxkb=1000"]
+
+      - id: check-case-conflict
+        name: "File: Case Conflict Detection"
+
+      - id: mixed-line-ending
+        name: "File: Line Ending Consistency"
+        args: ["--fix=lf"]
+
+  # ===================================
+  # Security Checks
+  # ===================================
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        name: "Security: Secret Detection"
+        args: ["--baseline", ".secrets.baseline"]
+        exclude: package-lock.json
+
+# ===================================
+# Configuration
+# ===================================
+default_language_version:
+  node: 20.10.0
+
