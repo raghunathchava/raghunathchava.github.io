@@ -437,7 +437,7 @@ export function AppleDesignSample() {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3">
               <img
-                src="/assets/images/Raghunath Chava-LOGO.png"
+                src="/assets/images/SARAISE-LOGO.png"
                 alt="Raghunath Chava Logo"
                 className="h-8 w-auto"
               />
@@ -726,7 +726,7 @@ $ docker-compose up
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-3">
               <img
-                src="/assets/images/Raghunath Chava-LOGO.png"
+                src="/assets/images/SARAISE-LOGO.png"
                 alt="Raghunath Chava Logo"
                 className="h-6 w-auto"
               />

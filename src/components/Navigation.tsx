@@ -80,7 +80,7 @@ export function Navigation() {
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <img
-              src="/assets/images/Raghunath Chava-LOGO.png"
+              src="/assets/images/SARAISE-LOGO.png"
               alt="Raghunath Chava Logo"
               className="h-12 w-auto min-w-[48px] object-contain"
             />

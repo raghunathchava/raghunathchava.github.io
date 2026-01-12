@@ -70,9 +70,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
   // -------------------------------------------------------------------------
   "/": {
     path: "/",
-    title: "Raghunath Chava | Sr Director – GenAI Platform Operations | Founder, BuildWorks.AI",
+    title: "Raghunath Chava | GenAI Platform Operations | BuildWorks.AI",
     description:
-      "Leading production-grade GenAI platform operations with 27+ years of experience. Specializing in LLMOps, Responsible AI, multi-tenant AI platforms, and enterprise AI governance.",
+      "GenAI platform operations expert with 27+ years experience. Specializing in LLMOps, Responsible AI, and enterprise AI governance.",
     canonical: BASE_URL,
     keywords: {
       primary: "GenAI platform operations",
@@ -153,9 +153,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
       },
     ],
     openGraph: {
-      title: "Raghunath Chava | Sr Director – GenAI Platform Operations",
+      title: "Raghunath Chava | GenAI Platform Operations",
       description:
-        "Leading production-grade GenAI platform operations with 27+ years of experience. Specializing in LLMOps, Responsible AI, and multi-tenant AI platforms.",
+        "GenAI platform operations expert with 27+ years experience. Specializing in LLMOps, Responsible AI, and enterprise AI governance.",
       image: DEFAULT_OG_IMAGE,
       type: "profile",
     },
@@ -1156,8 +1156,8 @@ export function getPageSEO(path: string): PageSEO {
   // Default SEO config for pages without explicit config
   return {
     path,
-    title: `${SITE_NAME} | ${path.split("/").pop() || "Page"}`,
-    description: `${SITE_NAME} - AI-ready, open-source ERP platform for modern enterprises.`,
+    title: `Raghunath Chava | ${path.split("/").pop() || "Page"}`,
+    description: `Raghunath Chava - GenAI platform operations expert with 27+ years experience.`,
     canonical: `${BASE_URL}${path}`,
     keywords: {
       primary: "Raghunath Chava ERP",
@@ -1167,8 +1167,8 @@ export function getPageSEO(path: string): PageSEO {
     intent: "informational",
     schema: [personSchema],
     openGraph: {
-      title: `${SITE_NAME} | ${path.split("/").pop() || "Page"}`,
-      description: `${SITE_NAME} - AI-ready, open-source ERP platform.`,
+      title: `Raghunath Chava | ${path.split("/").pop() || "Page"}`,
+      description: `Raghunath Chava - GenAI platform operations expert.`,
       image: DEFAULT_OG_IMAGE,
       type: "website",
     },
