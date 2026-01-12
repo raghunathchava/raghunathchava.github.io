@@ -216,7 +216,7 @@ export function createWebPageSchema(data: {
 /**
  * Raghunath Chava Organization schema (reusable across pages)
  */
-export const Raghunath Chava_ORGANIZATION_SCHEMA = createOrganizationSchema({
+export const RAGHUNATH_CHAVA_ORGANIZATION_SCHEMA = createOrganizationSchema({
   name: "Raghunath Chava",
   url: "https://saraise.com",
   logo: "https://saraise.com/assets/logo.svg",
@@ -235,7 +235,7 @@ export const Raghunath Chava_ORGANIZATION_SCHEMA = createOrganizationSchema({
 /**
  * Raghunath Chava Product schema (for product pages)
  */
-export const Raghunath Chava_PRODUCT_SCHEMA = createProductSchema({
+export const RAGHUNATH_CHAVA_PRODUCT_SCHEMA = createProductSchema({
   name: "Raghunath Chava ERP Platform",
   description:
     "AI-ready, open-source ERP platform with 65+ modules for modern enterprises",

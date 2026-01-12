@@ -62,7 +62,7 @@ const differentiators = [
   },
 ];
 
-export function WhyRaghunath Chava() {
+export function WhyRaghunathChava() {
   return (
     <section
       id="why-saraise"
