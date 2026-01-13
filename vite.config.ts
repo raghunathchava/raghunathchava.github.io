@@ -34,13 +34,13 @@ export default defineConfig({
     assetsDir: "assets",
     rollupOptions: {
       output: {
-        // Consistent chunk file naming for GitHub Pages compatibility
+        // Use consistent chunk naming - prevent intermediate chunk references
         chunkFileNames: "assets/[name]-[hash].js",
         entryFileNames: "assets/[name]-[hash].js",
         assetFileNames: "assets/[name]-[hash].[ext]",
-        // Manual chunk splitting to reduce fragmentation
+        // Aggressive chunking to prevent intermediate references
         manualChunks: (id) => {
-          // Vendor chunks
+          // Vendor chunks - keep separate for better caching
           if (id.includes("node_modules")) {
             if (id.includes("react") || id.includes("react-dom")) {
               return "react-vendor";
@@ -51,9 +51,15 @@ export default defineConfig({
             return "vendor";
           }
         },
+        // Prevent creating too many small chunks
+        // This helps avoid intermediate chunk references
+        inlineDynamicImports: false,
       },
     },
+    // Increase chunk size limit to reduce fragmentation
     chunkSizeWarningLimit: 1000,
+    // Disable code splitting warnings for better GitHub Pages compatibility
+    reportCompressedSize: false,
   },
   // Base path for production (empty for root domain)
   base: "/",
