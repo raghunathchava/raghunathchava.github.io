@@ -10,7 +10,7 @@ interface HeroProps {
   variant?: "home" | "about";
 }
 
-export function Hero({ variant: _variant = "home" }: HeroProps = {}) {
+export function Hero(_props: HeroProps = {}) {
   const { trackEvent } = useAnalytics();
 
   const handleCTAClick = (action: string) => {
