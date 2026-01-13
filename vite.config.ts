@@ -54,8 +54,6 @@ export default defineConfig({
             return "vendor";
           }
         },
-        // Prevent code splitting from creating too many intermediate chunks
-        experimentalMinChunkSize: 20000,
       },
     },
     // Reduce chunk splitting to minimize hash mismatches
