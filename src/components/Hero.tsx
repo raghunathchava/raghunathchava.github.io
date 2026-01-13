@@ -7,7 +7,7 @@ import { ArrowRight, Download, Mail, Linkedin, Github } from "lucide-react";
 import { useAnalytics } from "@/hooks/useAnalytics";
 
 interface HeroProps {
-  variant?: "home" | "about";
+  variant?: "home" | "about" | "enterprise" | "product" | "solution";
 }
 
 export function Hero(_props: HeroProps = {}) {
@@ -22,13 +22,15 @@ export function Hero(_props: HeroProps = {}) {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent pt-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 bg-background/80 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border border-border/50">
+        <div className="max-w-4xl mx-auto text-center space-y-8 p-8 sm:p-12">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
             <span>🔓</span>
-            <span>Sr Director – GenAI Platform Operations | Founder, BuildWorks.AI</span>
+            <span>
+              Sr Director – GenAI Platform Operations | Founder, BuildWorks.AI
+            </span>
           </div>
 
           {/* Main Headline */}
@@ -46,13 +48,15 @@ export function Hero(_props: HeroProps = {}) {
           {/* Description */}
           <div className="max-w-3xl mx-auto space-y-4">
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              I lead production-grade GenAI platform operations with full ownership of reliability, 
-              LLMOps, Responsible AI enforcement, and financial governance.
+              I lead production-grade GenAI platform operations with full
+              ownership of reliability, LLMOps, Responsible AI enforcement, and
+              financial governance.
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              With 27+ years across enterprise platforms, cloud, AIOps, FinOps, and regulated environments, 
-              I specialize in converting GenAI from experimentation into stable, governable, and scalable 
-              enterprise infrastructure.
+              With 27+ years across enterprise platforms, cloud, AIOps, FinOps,
+              and regulated environments, I specialize in converting GenAI from
+              experimentation into stable, governable, and scalable enterprise
+              infrastructure.
             </p>
           </div>
 
@@ -60,15 +64,21 @@ export function Hero(_props: HeroProps = {}) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-4">
             <div className="p-4 rounded-lg bg-card border border-border">
               <div className="text-2xl font-bold text-foreground">99.9%+</div>
-              <div className="text-sm text-muted-foreground">Platform Uptime</div>
+              <div className="text-sm text-muted-foreground">
+                Platform Uptime
+              </div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-border">
               <div className="text-2xl font-bold text-foreground">27+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-sm text-muted-foreground">
+                Years Experience
+              </div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-border">
               <div className="text-2xl font-bold text-foreground">2</div>
-              <div className="text-sm text-muted-foreground">Open-Source Platforms</div>
+              <div className="text-sm text-muted-foreground">
+                Open-Source Platforms
+              </div>
             </div>
           </div>
 
