@@ -77,7 +77,7 @@ export function About() {
       <Navigation />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-background via-background to-muted/20">
+        <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -132,7 +132,7 @@ export function About() {
         </section>
 
         {/* Expertise Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold mb-12 text-center">Core Expertise</h2>
@@ -182,7 +182,7 @@ export function About() {
         </section>
 
         {/* Certifications Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">Certifications</h2>

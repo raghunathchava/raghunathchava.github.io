@@ -59,7 +59,7 @@ export function Home() {
         <Hero variant="home" />
         
         {/* Core Focus Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -134,7 +134,7 @@ export function Home() {
         </section>
 
         {/* Quick Stats Section */}
-        <section className="py-20 bg-muted/30">
+        <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
