@@ -65,7 +65,10 @@ for (const referencedFile of referencedFiles) {
   const parts = referencedFile.split('-');
   let found = false;
   
-  // Try progressively shorter prefixes to find a match
+  // Extract base name (everything before the first hash)
+  const baseName = parts[0];
+  
+  // First, try progressively shorter prefixes to find a match
   for (let i = parts.length - 1; i > 0; i--) {
     const prefix = parts.slice(0, i).join('-');
     const matchingFile = actualFiles.find(f => 
@@ -78,6 +81,19 @@ for (const referencedFile of referencedFiles) {
       created++;
       found = true;
       break;
+    }
+  }
+  
+  // If still not found, try matching by base name only
+  if (!found) {
+    const matchingFile = actualFiles.find(f => 
+      f.startsWith(baseName + '-') && f.endsWith('.js')
+    );
+    
+    if (matchingFile) {
+      fs.copyFileSync(path.join(assetsDir, matchingFile), targetPath);
+      created++;
+      found = true;
     }
   }
   
