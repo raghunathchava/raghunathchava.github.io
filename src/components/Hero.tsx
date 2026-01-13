@@ -14,7 +14,11 @@ export function Hero(_props: HeroProps = {}) {
   const { trackEvent } = useAnalytics();
 
   const handleCTAClick = (action: string) => {
-    trackEvent("hero_cta_click", { action });
+    trackEvent({
+      name: "hero_cta_click",
+      category: "engagement",
+      properties: { action },
+    });
   };
 
   return (
