@@ -664,7 +664,7 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
     path: "/about",
     title: "About Raghunath Chava | GenAI Platform Operations Expert",
     description:
-      "Sr Director – GenAI Platform Operations with 27+ years of experience. Leading production-grade GenAI platform operations, LLMOps, Responsible AI, and multi-tenant AI platforms.",
+      "GenAI platform operations expert with 27+ years experience. Leading LLMOps, Responsible AI, and multi-tenant AI platforms.",
     keywords: {
       primary: "Raghunath Chava",
       secondary: [
