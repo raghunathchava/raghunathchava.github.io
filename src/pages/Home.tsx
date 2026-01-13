@@ -55,7 +55,7 @@ export function Home() {
     <>
       <SEO {...seo} />
       <Navigation />
-      <main className="space-y-0">
+      <main className="space-y-0 bg-background/20 backdrop-blur-sm">
         <Hero variant="home" />
         
         {/* Core Focus Section */}

@@ -72,8 +72,7 @@
   }
 
   body {
-    @apply text-foreground;
-    background: transparent !important;
+    @apply bg-background text-foreground;
     font-family:
       -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
       "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;

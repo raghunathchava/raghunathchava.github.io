@@ -75,7 +75,7 @@ export function About() {
     <>
       <SEO {...seo} />
       <Navigation />
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-background/20 backdrop-blur-sm">
         {/* Hero Section */}
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
