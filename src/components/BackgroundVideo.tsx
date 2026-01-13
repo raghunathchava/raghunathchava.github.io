@@ -80,7 +80,7 @@ export function BackgroundVideo() {
           loop
           muted
           playsInline
-          className="fixed inset-0 w-full h-full object-cover z-0 transition-opacity duration-300"
+          className="fixed inset-0 w-full h-full object-cover -z-10 transition-opacity duration-300"
           style={{ opacity }}
           onError={() => setVideoError(true)}
         >

@@ -216,7 +216,7 @@ function App() {
       {isLoading && <LoadingScreen />}
       <div className="min-h-screen text-foreground relative">
         <BackgroundVideo />
-        <div className="relative z-0">
+        <div className="relative z-10">
           <BrowserRouter>
             <ErrorBoundary>
               <Suspense fallback={<LoadingScreen />}>
