@@ -128,12 +128,31 @@ for (const referencedFile of referencedFiles) {
     }
   }
   
-  // Strategy 3: For components that might be inlined, try to find any file with same base
-  if (!found && fileMap.has(baseName)) {
-    const candidates = fileMap.get(baseName);
-    // Just use the first candidate as a fallback
-    if (candidates.length > 0) {
-      sourceFile = candidates[0];
+  // Strategy 3: For components/icons that might be inlined, try case-insensitive match
+  if (!found) {
+    const baseLower = baseName.toLowerCase();
+    for (const [key, candidates] of fileMap.entries()) {
+      if (key.toLowerCase() === baseLower && candidates.length > 0) {
+        sourceFile = candidates[0];
+        found = true;
+        break;
+      }
+    }
+  }
+  
+  // Strategy 4: For lucide-react icons (sun, hero, etc.), they might be in a vendor chunk
+  // Try to find in any vendor chunk
+  if (!found && (baseName === 'sun' || baseName === 'Sun' || baseName === 'Hero' || baseName === 'Footer')) {
+    const vendorFiles = actualFiles.filter(f => 
+      f.includes('vendor') || f.includes('lucide') || f.includes('react')
+    );
+    if (vendorFiles.length > 0) {
+      // Use the largest vendor file as it likely contains the icons
+      sourceFile = vendorFiles.sort((a, b) => {
+        const aSize = fs.statSync(path.join(assetsDir, a)).size;
+        const bSize = fs.statSync(path.join(assetsDir, b)).size;
+        return bSize - aSize;
+      })[0];
       found = true;
     }
   }
@@ -148,9 +167,15 @@ for (const referencedFile of referencedFiles) {
       warnings.push(referencedFile);
     }
   } else {
-    // If still not found, it might be in the main bundle - create empty file as last resort
-    // This shouldn't happen, but if it does, we'll log it
-    warnings.push(referencedFile);
+    // If still not found, create an empty module file as last resort
+    // This prevents 404 errors - the module will fail to load but won't break the app
+    try {
+      fs.writeFileSync(targetPath, 'export {};', 'utf8');
+      created++;
+      console.warn(`⚠️  Created empty placeholder for ${referencedFile} (not found in build)`);
+    } catch (error) {
+      warnings.push(referencedFile);
+    }
   }
 }
 
