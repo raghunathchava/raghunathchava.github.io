@@ -54,7 +54,7 @@ export function Hero({ variant = "home" }: HeroProps = {}) {
               I lead production-grade GenAI platform operations with full ownership of reliability, 
               LLMOps, Responsible AI enforcement, and financial governance.
             </p>
-            <p className="text-base sm:text-lg text-muted-foreground/80 leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               With 27+ years across enterprise platforms, cloud, AIOps, FinOps, and regulated environments, 
               I specialize in converting GenAI from experimentation into stable, governable, and scalable 
               enterprise infrastructure.
