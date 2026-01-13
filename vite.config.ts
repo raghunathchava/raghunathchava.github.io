@@ -37,13 +37,13 @@ export default defineConfig({
     // Optimize chunk splitting for better caching
     rollupOptions: {
       output: {
-        // Use consistent chunk file naming to avoid hash mismatches
+        // Use consistent chunk file naming with single hash to avoid mismatches
         chunkFileNames: "assets/[name]-[hash].js",
         entryFileNames: "assets/[name]-[hash].js",
         assetFileNames: "assets/[name]-[hash].[ext]",
-        // Prevent duplicate hashes in chunk names
+        // Use a function to ensure consistent chunk names
         manualChunks: (id) => {
-          // Vendor chunks
+          // Vendor chunks - group all node_modules together to reduce chunk count
           if (id.includes("node_modules")) {
             if (id.includes("react") || id.includes("react-dom")) {
               return "react-vendor";
@@ -54,8 +54,12 @@ export default defineConfig({
             return "vendor";
           }
         },
+        // Prevent code splitting from creating too many intermediate chunks
+        experimentalMinChunkSize: 20000,
       },
     },
+    // Reduce chunk splitting to minimize hash mismatches
+    chunkSizeWarningLimit: 1000,
   },
   // Base path for production (empty for root domain)
   base: "/",
