@@ -84,11 +84,21 @@ for (const referencedFile of referencedFiles) {
     }
   }
   
-  // If still not found, try matching by base name only
+  // If still not found, try matching by base name only (handle special chars)
   if (!found) {
-    const matchingFile = actualFiles.find(f => 
+    // Try exact base name match
+    let matchingFile = actualFiles.find(f => 
       f.startsWith(baseName + '-') && f.endsWith('.js')
     );
+    
+    // If still not found, try case-insensitive and with different separators
+    if (!matchingFile) {
+      matchingFile = actualFiles.find(f => {
+        const fLower = f.toLowerCase();
+        const baseLower = baseName.toLowerCase();
+        return fLower.startsWith(baseLower + '-') && f.endsWith('.js');
+      });
+    }
     
     if (matchingFile) {
       fs.copyFileSync(path.join(assetsDir, matchingFile), targetPath);
