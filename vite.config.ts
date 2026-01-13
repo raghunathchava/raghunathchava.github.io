@@ -32,18 +32,15 @@ export default defineConfig({
     sourcemap: process.env.NODE_ENV !== "production",
     outDir: "dist",
     assetsDir: "assets",
-    // Generate manifest for better caching
-    manifest: false,
-    // Optimize chunk splitting for better caching
     rollupOptions: {
       output: {
-        // Use consistent chunk file naming with single hash to avoid mismatches
+        // Consistent chunk file naming for GitHub Pages compatibility
         chunkFileNames: "assets/[name]-[hash].js",
         entryFileNames: "assets/[name]-[hash].js",
         assetFileNames: "assets/[name]-[hash].[ext]",
-        // Use a function to ensure consistent chunk names
+        // Manual chunk splitting to reduce fragmentation
         manualChunks: (id) => {
-          // Vendor chunks - group all node_modules together to reduce chunk count
+          // Vendor chunks
           if (id.includes("node_modules")) {
             if (id.includes("react") || id.includes("react-dom")) {
               return "react-vendor";
@@ -56,7 +53,6 @@ export default defineConfig({
         },
       },
     },
-    // Reduce chunk splitting to minimize hash mismatches
     chunkSizeWarningLimit: 1000,
   },
   // Base path for production (empty for root domain)
