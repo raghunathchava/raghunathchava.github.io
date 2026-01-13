@@ -107,9 +107,32 @@ for (const referencedFile of referencedFiles) {
     }
   }
   
-  if (!found) {
-    warnings.push(referencedFile);
-  }
+    if (!found) {
+      // Some files might be inlined in the main bundle - check if it's a critical file
+      // If it's a component that's imported directly (not lazy), it might be in the main bundle
+      const isCritical = referencedFile.includes('Footer') || 
+                        referencedFile.includes('Navigation') ||
+                        referencedFile.includes('Hero');
+      
+      if (!isCritical) {
+        warnings.push(referencedFile);
+      } else {
+        // For critical files, try to find any file with similar base name
+        const baseMatch = actualFiles.find(f => {
+          const refBase = referencedFile.split('-')[0];
+          const fileBase = f.split('-')[0];
+          return refBase === fileBase && f.endsWith('.js');
+        });
+        
+        if (baseMatch) {
+          fs.copyFileSync(path.join(assetsDir, baseMatch), targetPath);
+          created++;
+          found = true;
+        } else {
+          warnings.push(referencedFile);
+        }
+      }
+    }
 }
 
 console.log(`✅ Created ${created} file aliases`);
