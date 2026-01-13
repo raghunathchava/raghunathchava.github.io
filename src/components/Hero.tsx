@@ -23,16 +23,6 @@ export function Hero(_props: HeroProps = {}) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Effects - Reduced opacity to show video */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/10 via-transparent to-muted/10 z-0" />
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8 bg-background/80 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border border-border/50">
           {/* Badge */}
