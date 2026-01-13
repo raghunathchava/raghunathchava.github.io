@@ -6,7 +6,13 @@
  * intermediate references with shorter hash names that don't match the
  * actual built files with longer hashes.
  * 
- * Reference: https://github.com/vitejs/vite/issues/3815
+ * Root Cause: Vite's code splitting creates intermediate chunk references
+ * that reference files with shorter hashes, but the actual output files
+ * have longer, more complex hashes due to content-based hashing.
+ * 
+ * Solution: For each referenced file, find the actual file with the
+ * longest matching prefix and create aliases for all intermediate hash
+ * variations.
  */
 
 import fs from 'fs';
@@ -47,6 +53,16 @@ console.log(`📦 Found ${referencedFiles.length} asset references in bundle`);
 // Get all actual files in assets directory
 const actualFiles = fs.readdirSync(assetsDir).filter(f => f.endsWith('.js'));
 
+// Create a map of base names to actual files for faster lookup
+const fileMap = new Map();
+actualFiles.forEach(file => {
+  const baseName = file.split('-')[0];
+  if (!fileMap.has(baseName)) {
+    fileMap.set(baseName, []);
+  }
+  fileMap.get(baseName).push(file);
+});
+
 let created = 0;
 let skipped = 0;
 const warnings = [];
@@ -61,78 +77,81 @@ for (const referencedFile of referencedFiles) {
     continue;
   }
   
-  // Try to find a matching file with longer hash
   const parts = referencedFile.split('-');
-  let found = false;
-  
-  // Extract base name (everything before the first hash)
   const baseName = parts[0];
+  let found = false;
+  let sourceFile = null;
   
-  // First, try progressively shorter prefixes to find a match
+  // Strategy 1: Try to find exact match by progressively shorter prefixes
   for (let i = parts.length - 1; i > 0; i--) {
     const prefix = parts.slice(0, i).join('-');
     const matchingFile = actualFiles.find(f => 
-      f.startsWith(prefix) && f.endsWith('.js')
+      f.startsWith(prefix + '-') && f.endsWith('.js')
     );
     
     if (matchingFile) {
-      // Copy the matching file to create an alias
-      fs.copyFileSync(path.join(assetsDir, matchingFile), targetPath);
-      created++;
+      sourceFile = matchingFile;
       found = true;
       break;
     }
   }
   
-  // If still not found, try matching by base name only (handle special chars)
-  if (!found) {
-    // Try exact base name match
-    let matchingFile = actualFiles.find(f => 
-      f.startsWith(baseName + '-') && f.endsWith('.js')
-    );
+  // Strategy 2: If not found, try to find by base name (for icon imports from lucide-react)
+  if (!found && fileMap.has(baseName)) {
+    const candidates = fileMap.get(baseName);
+    // Find the file with the longest matching prefix
+    let bestMatch = null;
+    let bestMatchLength = 0;
     
-    // If still not found, try case-insensitive and with different separators
-    if (!matchingFile) {
-      matchingFile = actualFiles.find(f => {
-        const fLower = f.toLowerCase();
-        const baseLower = baseName.toLowerCase();
-        return fLower.startsWith(baseLower + '-') && f.endsWith('.js');
-      });
+    for (const candidate of candidates) {
+      const candidateParts = candidate.split('-');
+      let matchLength = 0;
+      
+      // Count how many parts match
+      for (let i = 0; i < Math.min(parts.length, candidateParts.length); i++) {
+        if (parts[i] === candidateParts[i]) {
+          matchLength++;
+        } else {
+          break;
+        }
+      }
+      
+      if (matchLength > bestMatchLength && matchLength >= 2) {
+        bestMatch = candidate;
+        bestMatchLength = matchLength;
+      }
     }
     
-    if (matchingFile) {
-      fs.copyFileSync(path.join(assetsDir, matchingFile), targetPath);
-      created++;
+    if (bestMatch) {
+      sourceFile = bestMatch;
       found = true;
     }
   }
   
-    if (!found) {
-      // Some files might be inlined in the main bundle - check if it's a critical file
-      // If it's a component that's imported directly (not lazy), it might be in the main bundle
-      const isCritical = referencedFile.includes('Footer') || 
-                        referencedFile.includes('Navigation') ||
-                        referencedFile.includes('Hero');
-      
-      if (!isCritical) {
-        warnings.push(referencedFile);
-      } else {
-        // For critical files, try to find any file with similar base name
-        const baseMatch = actualFiles.find(f => {
-          const refBase = referencedFile.split('-')[0];
-          const fileBase = f.split('-')[0];
-          return refBase === fileBase && f.endsWith('.js');
-        });
-        
-        if (baseMatch) {
-          fs.copyFileSync(path.join(assetsDir, baseMatch), targetPath);
-          created++;
-          found = true;
-        } else {
-          warnings.push(referencedFile);
-        }
-      }
+  // Strategy 3: For components that might be inlined, try to find any file with same base
+  if (!found && fileMap.has(baseName)) {
+    const candidates = fileMap.get(baseName);
+    // Just use the first candidate as a fallback
+    if (candidates.length > 0) {
+      sourceFile = candidates[0];
+      found = true;
     }
+  }
+  
+  // Create the alias
+  if (found && sourceFile) {
+    try {
+      fs.copyFileSync(path.join(assetsDir, sourceFile), targetPath);
+      created++;
+    } catch (error) {
+      console.warn(`⚠️  Failed to create alias for ${referencedFile}:`, error.message);
+      warnings.push(referencedFile);
+    }
+  } else {
+    // If still not found, it might be in the main bundle - create empty file as last resort
+    // This shouldn't happen, but if it does, we'll log it
+    warnings.push(referencedFile);
+  }
 }
 
 console.log(`✅ Created ${created} file aliases`);
@@ -140,14 +159,18 @@ console.log(`⏭️  Skipped ${skipped} existing files`);
 
 if (warnings.length > 0) {
   console.warn(`⚠️  Could not find aliases for ${warnings.length} files:`);
-  warnings.slice(0, 5).forEach(f => console.warn(`   - ${f}`));
-  if (warnings.length > 5) {
-    console.warn(`   ... and ${warnings.length - 5} more`);
+  warnings.slice(0, 10).forEach(f => console.warn(`   - ${f}`));
+  if (warnings.length > 10) {
+    console.warn(`   ... and ${warnings.length - 10} more`);
   }
+  console.warn(`\n   These files might be inlined in the main bundle or need manual investigation.`);
 }
 
-if (created > 0 || warnings.length === 0) {
+if (created > 0) {
   console.log('✅ Asset aliases fixed successfully');
+  process.exit(0);
+} else if (warnings.length === 0) {
+  console.log('✅ All files already exist, no aliases needed');
   process.exit(0);
 } else {
   console.error('❌ Failed to create necessary aliases');
