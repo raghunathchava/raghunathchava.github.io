@@ -84,8 +84,7 @@ export function About() {
                 About Raghunath Chava
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Sr Director – GenAI Platform Operations | LLMOps | Responsible AI | 
-                Multi-Tenant AI Platforms | Founder, BuildWorks.AI
+                Chief of Innovation, Automation, Transformation, Architecture & AI Practice | Hitachi Digital Services
               </p>
             </div>
           </div>
@@ -95,37 +94,17 @@ export function About() {
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">Professional Summary</h2>
+              <h2 className="text-3xl font-bold mb-6">Executive Summary</h2>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  I lead production-grade GenAI platform operations with full ownership of reliability, 
-                  LLMOps, Responsible AI enforcement, and financial governance.
+                  Raghunath Chava leads Innovation, Automation, Transformation, Architecture, and AI at Hitachi Digital Services. He is accountable for enterprise automation ecosystems that combine AI acceleration with governance rigor, operational resilience, and measurable business impact — aligned with board-level expectations for risk, compliance, and long-term strategy.
                 </p>
                 <p>
-                  With 27+ years across enterprise platforms, cloud, AIOps, FinOps, and regulated environments, 
-                  I specialize in converting GenAI from experimentation into stable, governable, and scalable 
-                  enterprise infrastructure. My work spans multi-tenant AI platforms serving real users with 
-                  strict uptime, security, and compliance requirements.
+                  Under his leadership, Hitachi Digital Services delivers the RunFabric + EAGLE ecosystem (Hitachi Proprietary): an AI-first automation platform with built-in auditability, controlled AI adoption with human-in-the-loop, cross-ecosystem integration, and embedded risk controls. The platform is designed for audit committees and CISOs — every execution produces evidence; AI is confidence-gated; rollback and continuity are engineered in.
                 </p>
                 <p>
-                  Today, as Founder & Chief of AI at BuildWorks.AI, I operate a multi-tenant GenAI platform 
-                  delivering end-to-end LLMOps, GenAI observability & AI FinOps, production reliability with 
-                  99.9%+ uptime, and Responsible AI at runtime.
+                  He holds software engineering as a discipline: idempotent workflows, evidence on every execution, confidence-gated AI, and rollback plans by design. As Founder & Chief of AI at BuildWorks.AI, he also drives a multi-tenant GenAI platform and is the architect of open-source Aistrale (Apache 2.0) and SARAISE (Apache 2.0) for GenAI governance and LLMOps.
                 </p>
-                <p>
-                  I am the architect of two open-source, enterprise-grade platforms:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 mt-4">
-                  <li>
-                    <strong>Aistrale (Apache 2.0)</strong> — a GenAI governance & LLMOps control plane for 
-                    secure model lifecycle management, inference routing, telemetry, and compliance logging.
-                  </li>
-                  <li>
-                    <strong>SARAISE (Apache 2.0)</strong> — an enterprise AI governance fabric implementing 
-                    RBAC, ABAC, Resource-Level Permissions (row isolation), Separation of Duties, and 
-                    Just-in-Time access, enforcing Zero-Trust authorization inside GenAI runtime.
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

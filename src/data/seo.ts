@@ -37,8 +37,8 @@ export const personSchema: SchemaMarkup = {
     "@type": "Person",
     name: "Raghunath Chava",
     url: BASE_URL,
-    jobTitle: "Sr Director – GenAI Platform Operations | Founder, BuildWorks.AI",
-    description: "Leading production-grade GenAI platform operations with full ownership of reliability, LLMOps, Responsible AI enforcement, and financial governance",
+    jobTitle: "Chief of Innovation, Automation, Transformation, Architecture & AI Practice | Hitachi Digital Services",
+    description: "Leads and is accountable for Innovation, Automation, Transformation, Architecture & AI at Hitachi Digital Services; RunFabric + EAGLE (Hitachi Proprietary), governed execution, and board-aligned enterprise automation",
     email: "info@raghunathchava.com",
     telephone: "+919666953366",
     address: {
@@ -70,9 +70,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
   // -------------------------------------------------------------------------
   "/": {
     path: "/",
-    title: "Raghunath Chava | GenAI Platform Operations | BuildWorks.AI",
+    title: "Raghunath Chava | Enterprise AI Automation & Transformation | Hitachi Digital Services",
     description:
-      "GenAI platform operations expert with 27+ years experience. Specializing in LLMOps, Responsible AI, and enterprise AI governance.",
+      "Chief of Innovation, Automation, Transformation, Architecture & AI Practice at Hitachi Digital Services. Governed, audit-ready enterprise AI automation; RunFabric + EAGLE (Hitachi Proprietary); strategy, architecture, and delivery accountability.",
     canonical: BASE_URL,
     keywords: {
       primary: "GenAI platform operations",
@@ -689,7 +689,7 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
     path: "/experience",
     title: "Professional Experience | Raghunath Chava",
     description:
-      "27+ years of experience across enterprise platforms, cloud, AIOps, FinOps, and regulated environments. Former Delivery Head at Wipro, Head of Cloud Infrastructure at Societe Generale.",
+      "27+ years of experience. Chief of Innovation, Automation, Transformation, Architecture & AI Practice at Hitachi Digital Services; RunFabric + EAGLE (Hitachi Proprietary), full-stack AI automation, governance.",
     keywords: {
       primary: "Raghunath Chava experience",
       secondary: [
@@ -710,9 +710,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
 
   "/projects": {
     path: "/projects",
-    title: "Open-Source Projects | Aistrale & SARAISE",
+    title: "Projects & Platforms | RunFabric + EAGLE (Hitachi Proprietary) & Open-Source",
     description:
-      "Architect of two open-source, enterprise-grade platforms: Aistrale (GenAI governance & LLMOps) and SARAISE (enterprise AI governance fabric).",
+      "Featured: RunFabric + EAGLE ecosystem (Hitachi Proprietary) — AI-first enterprise IT automation. Plus open-source Aistrale (GenAI governance & LLMOps) and SARAISE (AI governance fabric).",
     keywords: {
       primary: "Aistrale SARAISE",
       secondary: [

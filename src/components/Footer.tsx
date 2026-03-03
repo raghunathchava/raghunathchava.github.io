@@ -4,6 +4,7 @@
  */
 import { Link } from "react-router-dom";
 import { Mail, Linkedin, Github, MapPin } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   return (
@@ -12,10 +13,11 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h4 className="text-2xl font-bold">Raghunath Chava</h4>
+            <Link to="/" className="inline-block">
+              <Logo size={40} showWordmark />
+            </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
-              Sr Director – GenAI Platform Operations | LLMOps | Responsible AI | 
-              Multi-Tenant AI Platforms | Founder, BuildWorks.AI
+              Chief of Innovation, Automation, Transformation, Architecture & AI Practice | Hitachi Digital Services
             </p>
             <div className="flex gap-4 pt-2">
               <a

@@ -65,8 +65,7 @@ export function Home() {
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">Core Focus</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Specializing in converting GenAI from experimentation into stable, 
-                  governable, and scalable enterprise infrastructure
+                  Governance, scale, and accountability: enterprise AI automation aligned with board-level risk, compliance, and long-term strategy
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -99,9 +98,9 @@ export function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Open-Source Platforms</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Featured & Open-Source</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Architect of enterprise-grade platforms for GenAI governance and AI operations
+                  RunFabric + EAGLE (Hitachi Proprietary): governed, audit-ready automation. <Link to="/projects" className="text-primary hover:underline">Platform details</Link>. Open-source: Aistrale & SARAISE.
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

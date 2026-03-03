@@ -21,6 +21,23 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    company: "Hitachi Digital Services",
+    role: "Chief of Innovation, Automation, Transformation, Architecture & AI Practice",
+    period: "January 2026 - Present",
+    location: "Hyderabad, Telangana, India",
+    description:
+      "Accountable for the design and delivery of enterprise AI automation that transforms IT operations into controlled, auditable execution systems. Focus: operational transformation at scale — reduced risk, stronger compliance posture, faster cycle time, and automation leverage across complex enterprise ecosystems. Led the architecture and operationalization of the RunFabric + EAGLE ecosystem (Hitachi Proprietary), built for audit committees and CISOs with evidence on every execution and confidence-gated AI.",
+    achievements: [
+      "Operational efficiency at scale: manual workflows across infrastructure, application lifecycle, and service management replaced with orchestrated automation; reduced dependency on human coordination, lower friction, faster execution cycles",
+      "Auditability and regulatory alignment: every automated action produces traceable evidence for ISO 27001, ISO 42001, ISO 20000, and related standards; audit readiness by design",
+      "Controlled AI adoption: AI agents deployed with confidence thresholds and human-in-the-loop controls; AI accelerates decision-making without unmanaged risk or black-box behavior",
+      "Cross-ecosystem integration: platform integrates with ITSM, infrastructure, security, and cloud systems for a unified automation fabric across heterogeneous enterprise landscapes; reduced tool fragmentation, improved operational coherence",
+      "Built-in risk controls: automated rollback, circuit isolation, staged deployment rings, and execution validation embedded in architecture; reduced blast radius during change events, improved service continuity",
+      "Business value: lower OpEx through automation density; reduced incident resolution time via AI-assisted triage; improved governance through embedded compliance controls; delivery predictability via deterministic workflow design; scalable growth without linear headcount expansion",
+      "Leadership: automation must produce measurable outcomes; AI within defined governance boundaries; compliance engineered into systems, not documented after deployment; technology decisions that strengthen long-term enterprise stability",
+    ],
+  },
+  {
     company: "BuildWorks.AI",
     role: "Founder & Chief of AI",
     period: "February 2025 - Present",

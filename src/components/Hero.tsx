@@ -29,7 +29,7 @@ export function Hero(_props: HeroProps = {}) {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
             <span>🔓</span>
             <span>
-              Sr Director – GenAI Platform Operations | Founder, BuildWorks.AI
+              Chief of Innovation, Automation, Transformation, Architecture & AI Practice | Hitachi Digital Services
             </span>
           </div>
 
@@ -42,42 +42,34 @@ export function Hero(_props: HeroProps = {}) {
 
           {/* Subheadline */}
           <p className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-light">
-            Leading Production-Grade GenAI Platform Operations
+            Transforming enterprise IT into governed, AI-driven execution — strategy, architecture, and delivery.
           </p>
 
           {/* Description */}
           <div className="max-w-3xl mx-auto space-y-4">
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              I lead production-grade GenAI platform operations with full
-              ownership of reliability, LLMOps, Responsible AI enforcement, and
-              financial governance.
-            </p>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              With 27+ years across enterprise platforms, cloud, AIOps, FinOps,
-              and regulated environments, I specialize in converting GenAI from
-              experimentation into stable, governable, and scalable enterprise
-              infrastructure.
+              I lead the design and delivery of enterprise AI automation platforms that turn manual operations into controlled, auditable execution systems. Accountable for architecture, governance, and measurable outcomes — from board-level risk posture to production-grade reliability.
             </p>
           </div>
 
-          {/* Key Highlights */}
+          {/* Key Highlights - executive impact */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-4">
             <div className="p-4 rounded-lg bg-card border border-border">
-              <div className="text-2xl font-bold text-foreground">99.9%+</div>
+              <div className="text-2xl font-bold text-foreground">Governed</div>
               <div className="text-sm text-muted-foreground">
-                Platform Uptime
+                ISO-aligned, evidence-first, audit-ready
               </div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-border">
-              <div className="text-2xl font-bold text-foreground">27+</div>
+              <div className="text-2xl font-bold text-foreground">Scale</div>
               <div className="text-sm text-muted-foreground">
-                Years Experience
+                34 AI agents, 75 workflows, 30+ integrations
               </div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-border">
-              <div className="text-2xl font-bold text-foreground">2</div>
+              <div className="text-2xl font-bold text-foreground">Accountable</div>
               <div className="text-sm text-muted-foreground">
-                Open-Source Platforms
+                Full ownership from strategy to production
               </div>
             </div>
           </div>

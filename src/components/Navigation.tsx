@@ -8,6 +8,7 @@ import { useTheme } from "@/hooks/use-theme";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types/components";
+import { Logo } from "@/components/Logo";
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -77,16 +78,10 @@ export function Navigation() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+            aria-label="Raghunath Chava – Home"
           >
-            <img
-              src="/assets/images/SARAISE-LOGO.png"
-              alt="Raghunath Chava Logo"
-              className="h-12 w-auto min-w-[48px] object-contain"
-            />
-            <span className="text-2xl font-extrabold bg-gradient-to-r from-deepBlue to-teal bg-clip-text text-transparent">
-              Raghunath Chava
-            </span>
+            <Logo size={48} showWordmark />
           </Link>
 
           {/* Desktop Navigation */}
