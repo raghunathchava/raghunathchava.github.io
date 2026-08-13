@@ -139,6 +139,20 @@ export function BackgroundVideo() {
         />
       )}
 
+      {/*
+        Legibility scrim. The video is a busy mid-tone image, and body copy sits
+        directly on it (Home and Hero are bg-transparent; other pages carried
+        only bg-background/20), which pushed text well under the WCAG AA 4.5:1
+        contrast floor in light mode. This layer sits above the video and below
+        all content — same z-index, later in DOM order than the video, earlier
+        than the app's content wrapper — so the footage stays visible as texture
+        while text always renders against a near-solid surface.
+      */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-background/90 dark:bg-background/80"
+      />
+
       {/* Fallback Background - Only shows if video fails */}
       {videoError && (
         <div className="fixed inset-0 -z-10 bg-gradient-to-br from-deepBlue/5 via-transparent to-teal/5" />
