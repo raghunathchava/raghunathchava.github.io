@@ -8,11 +8,32 @@ const VIDEO_SRC = "/video.mp4";
 // started, so the background is never blank if a browser denies autoplay.
 const VIDEO_POSTER = "/video-poster.jpg";
 
+// The clip's first and last frames show the same scene with different detail,
+// so the loop seam needs masking rather than hiding. A short, shallow dip does
+// that: previously the opacity ramped to 0 across the final 1.5s, which blanked
+// the background for about a second on every loop.
+const SEAM_WINDOW = 0.45; // seconds of ramp on each side of the seam
+const SEAM_FLOOR = 0.6; // never dim below 60% of base — no blank frame
+
+const prefersDark = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+const baseOpacity = () => (prefersDark() ? 0.3 : 0.4);
+
+/** Opacity for a given playback position, dipping gently across the loop seam. */
+function loopOpacity(currentTime: number, duration: number): number {
+  const base = baseOpacity();
+  const edge = Math.min(currentTime, duration - currentTime);
+  if (edge >= SEAM_WINDOW) return base;
+  const ramp = Math.max(0, edge) / SEAM_WINDOW; // 0 at the seam, 1 at full
+  return base * (SEAM_FLOOR + (1 - SEAM_FLOOR) * ramp);
+}
+
 export function BackgroundVideo() {
   const [videoError, setVideoError] = useState(false);
-  const [opacity, setOpacity] = useState(0.4); // Default opacity for light mode
+  const [opacity, setOpacity] = useState(baseOpacity);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const fadeDuration = 1.5; // seconds
 
   // Safari/WebKit decides whether a media element may autoplay at the moment its
   // source begins loading. React sets `muted` as a DOM property rather than an
@@ -65,37 +86,12 @@ export function BackgroundVideo() {
     document.addEventListener("visibilitychange", attemptPlay);
 
     const handleTimeUpdate = () => {
-      if (video.duration) {
-        const timeRemaining = video.duration - video.currentTime;
-
-        // If we're in the last 1.5 seconds, fade out
-        if (timeRemaining <= fadeDuration) {
-          // Calculate fade opacity: 0 at end, full opacity at fadeDuration seconds before end
-          const fadeProgress = timeRemaining / fadeDuration;
-          // Base opacity: 0.4 for light mode, 0.3 for dark mode
-          const baseOpacity = window.matchMedia("(prefers-color-scheme: dark)")
-            .matches
-            ? 0.3
-            : 0.4;
-          setOpacity(baseOpacity * fadeProgress);
-        } else {
-          // Reset to full opacity when not in fade zone
-          const baseOpacity = window.matchMedia("(prefers-color-scheme: dark)")
-            .matches
-            ? 0.3
-            : 0.4;
-          setOpacity(baseOpacity);
-        }
-      }
+      if (!video.duration) return;
+      setOpacity(loopOpacity(video.currentTime, video.duration));
     };
 
     const handleLoadedMetadata = () => {
-      // Set initial opacity based on theme
-      const baseOpacity = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? 0.3
-        : 0.4;
-      setOpacity(baseOpacity);
+      setOpacity(baseOpacity());
     };
 
     video.addEventListener("timeupdate", handleTimeUpdate);
@@ -104,13 +100,11 @@ export function BackgroundVideo() {
     // Handle theme changes
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleThemeChange = () => {
-      if (video.duration) {
-        const timeRemaining = video.duration - video.currentTime;
-        if (timeRemaining > fadeDuration) {
-          const baseOpacity = mediaQuery.matches ? 0.3 : 0.4;
-          setOpacity(baseOpacity);
-        }
-      }
+      setOpacity(
+        video.duration
+          ? loopOpacity(video.currentTime, video.duration)
+          : baseOpacity(),
+      );
     };
     mediaQuery.addEventListener("change", handleThemeChange);
 
