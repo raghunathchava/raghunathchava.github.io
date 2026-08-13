@@ -29,7 +29,7 @@ export function Hero(_props: HeroProps = {}) {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
             <span>🔓</span>
             <span>
-              Chief of Innovation, Automation, Transformation, Architecture & AI Practice | Hitachi Digital Services
+              Senior Director — Automation, AI, Architecture &amp; Innovation | Hitachi Digital Services
             </span>
           </div>
 
@@ -42,13 +42,16 @@ export function Hero(_props: HeroProps = {}) {
 
           {/* Subheadline */}
           <p className="text-xl sm:text-2xl lg:text-3xl text-muted-foreground font-light">
-            Transforming enterprise IT into governed, AI-driven execution — strategy, architecture, and delivery.
+            I turn GenAI and automation from pilots into operating capability.
           </p>
 
           {/* Description */}
           <div className="max-w-3xl mx-auto space-y-4">
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              I lead the design and delivery of enterprise AI automation platforms that turn manual operations into controlled, auditable execution systems. Accountable for architecture, governance, and measurable outcomes — from board-level risk posture to production-grade reliability.
+              Engineering-led technology executive, 27 years, accountable for enterprise technology direction — architecture, standards, org capability, and P&amp;L. Control-plane architecture, evidence-backed execution, runtime governance, and unit economics that survive a CFO and an auditor in the same room.
+            </p>
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+              I set the strategy <span className="text-foreground font-medium">and</span> ship the architecture — equally at home defining a multi-year technology agenda for a board and reviewing the pull request that implements it.
             </p>
           </div>
 
@@ -57,19 +60,19 @@ export function Hero(_props: HeroProps = {}) {
             <div className="p-4 rounded-lg bg-card border border-border">
               <div className="text-2xl font-bold text-foreground">Governed</div>
               <div className="text-sm text-muted-foreground">
-                ISO-aligned, evidence-first, audit-ready
+                Evidence on every execution, confidence-gated AI, audit-ready by design
               </div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-border">
-              <div className="text-2xl font-bold text-foreground">Scale</div>
+              <div className="text-2xl font-bold text-foreground">Built</div>
               <div className="text-sm text-muted-foreground">
-                34 AI agents, 75 workflows, 30+ integrations
+                An eleven-platform automation and AI estate in Python, TypeScript, and Rust
               </div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-border">
-              <div className="text-2xl font-bold text-foreground">Accountable</div>
+              <div className="text-2xl font-bold text-foreground">Proven</div>
               <div className="text-sm text-muted-foreground">
-                Full ownership from strategy to production
+                ≥90% coverage and mutation score, strict typing, zero-bypass quality gates
               </div>
             </div>
           </div>
@@ -86,7 +89,8 @@ export function Hero(_props: HeroProps = {}) {
             </Link>
             <a
               href="/Profile.pdf"
-              download
+              download="Raghunath-Chava-Resume.pdf"
+              type="application/pdf"
               onClick={() => handleCTAClick("download_resume")}
               className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border text-foreground rounded-lg font-medium hover:bg-muted transition-colors"
             >

@@ -41,11 +41,7 @@ export function EnterpriseOverview() {
       <SEO {...seo} />
       <Navigation />
       <main>
-        <Hero
-          variant="enterprise"
-          headline="Enterprise-Grade ERP Platform"
-          subheadline="Security, compliance, and support for large organizations"
-        />
+        <Hero variant="enterprise" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="max-w-6xl mx-auto space-y-16">
             {/* ROI Calculator Above the Fold */}

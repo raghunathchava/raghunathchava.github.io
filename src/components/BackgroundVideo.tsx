@@ -1,7 +1,9 @@
 /**
  * https://raghunathchava.com
  */
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
+
+const VIDEO_SRC = "/video.mp4";
 
 export function BackgroundVideo() {
   const [videoError, setVideoError] = useState(false);
@@ -9,9 +11,52 @@ export function BackgroundVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const fadeDuration = 1.5; // seconds
 
-  useEffect(() => {
+  // Safari/WebKit decides whether a media element may autoplay at the moment its
+  // source begins loading. React sets `muted` as a DOM property rather than an
+  // HTML attribute, so WebKit evaluated an "unmuted" element and denied autoplay
+  // permanently — the video sat at currentTime 0 with readyState 4 (decoded fine,
+  // never started) and every play() returned NotAllowedError. Chrome and Firefox
+  // are more lenient and played it regardless.
+  //
+  // The element is therefore rendered with NO source; we set `muted` on the node
+  // first and only then assign src, so WebKit evaluates an unambiguously muted
+  // element. A user-gesture fallback covers any stricter policy.
+  useLayoutEffect(() => {
     const video = videoRef.current;
     if (!video || videoError) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+
+    if (!video.getAttribute("src")) {
+      video.setAttribute("src", VIDEO_SRC);
+      video.load();
+    }
+
+    let cancelled = false;
+
+    const attemptPlay = () => {
+      if (cancelled || !video.paused) return;
+      const started = video.play();
+      if (started && typeof started.catch === "function") {
+        started.catch(() => {
+          // Autoplay refused — retry once the user interacts with the page.
+          const resume = () => {
+            video.play().catch(() => undefined);
+            window.removeEventListener("pointerdown", resume);
+            window.removeEventListener("keydown", resume);
+          };
+          window.addEventListener("pointerdown", resume, { once: true });
+          window.addEventListener("keydown", resume, { once: true });
+        });
+      }
+    };
+
+    attemptPlay();
+    video.addEventListener("canplay", attemptPlay);
+    video.addEventListener("loadeddata", attemptPlay);
 
     const handleTimeUpdate = () => {
       if (video.duration) {
@@ -64,6 +109,9 @@ export function BackgroundVideo() {
     mediaQuery.addEventListener("change", handleThemeChange);
 
     return () => {
+      cancelled = true;
+      video.removeEventListener("canplay", attemptPlay);
+      video.removeEventListener("loadeddata", attemptPlay);
       video.removeEventListener("timeupdate", handleTimeUpdate);
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
       mediaQuery.removeEventListener("change", handleThemeChange);
@@ -72,7 +120,8 @@ export function BackgroundVideo() {
 
   return (
     <>
-      {/* Background Video */}
+      {/* Background video — `src` is assigned imperatively once `muted` is set,
+          so WebKit evaluates a muted element and permits autoplay. */}
       {!videoError && (
         <video
           ref={videoRef}
@@ -83,9 +132,9 @@ export function BackgroundVideo() {
           className="fixed inset-0 w-full h-full object-cover z-0 transition-opacity duration-300"
           style={{ opacity }}
           onError={() => setVideoError(true)}
-        >
-          <source src="/video.mp4" type="video/mp4" />
-        </video>
+          preload="auto"
+          aria-hidden="true"
+        />
       )}
 
       {/* Fallback Background - Only shows if video fails */}

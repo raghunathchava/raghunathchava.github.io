@@ -25,7 +25,10 @@ import type {
 
 export const BASE_URL = "https://raghunathchava.com";
 export const SITE_NAME = "Raghunath Chava";
-export const DEFAULT_OG_IMAGE = "/assets/og-default.png";
+// Absolute URL on the origin that actually serves the file. Social scrapers
+// reject relative paths, and the previous value (/assets/og-default.png) did
+// not exist in the build output, so every emitted og:image resolved to a 404.
+export const DEFAULT_OG_IMAGE = "https://raghunathchava.github.io/og-image.png";
 
 // =============================================================================
 // Person Schema (used across all pages)
@@ -37,8 +40,8 @@ export const personSchema: SchemaMarkup = {
     "@type": "Person",
     name: "Raghunath Chava",
     url: BASE_URL,
-    jobTitle: "Chief of Innovation, Automation, Transformation, Architecture & AI Practice | Hitachi Digital Services",
-    description: "Leads and is accountable for Innovation, Automation, Transformation, Architecture & AI at Hitachi Digital Services; RunFabric + EAGLE (Hitachi Proprietary), governed execution, and board-aligned enterprise automation",
+    jobTitle: "Senior Director — Automation, AI, Architecture & Innovation | Hitachi Digital Services",
+    description: "Engineering-led technology executive owning the automation and AI charter for Hitachi Digital Services Managed Services — an eleven-platform fabric estate, governed execution, and board-aligned enterprise automation",
     email: "info@raghunathchava.com",
     telephone: "+919666953366",
     address: {
@@ -70,9 +73,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
   // -------------------------------------------------------------------------
   "/": {
     path: "/",
-    title: "Raghunath Chava | Enterprise AI Automation & Transformation | Hitachi Digital Services",
+    title: "Raghunath Chava | Enterprise AI Automation & Governance",
     description:
-      "Chief of Innovation, Automation, Transformation, Architecture & AI Practice at Hitachi Digital Services. Governed, audit-ready enterprise AI automation; RunFabric + EAGLE (Hitachi Proprietary); strategy, architecture, and delivery accountability.",
+      "Senior Director — Automation, AI, Architecture & Innovation at Hitachi Digital Services. Governed, audit-ready enterprise AI automation at scale.",
     canonical: BASE_URL,
     keywords: {
       primary: "GenAI platform operations",
@@ -153,9 +156,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
       },
     ],
     openGraph: {
-      title: "Raghunath Chava | GenAI Platform Operations",
+      title: "Raghunath Chava | Automation, AI, Architecture & Innovation",
       description:
-        "GenAI platform operations expert with 27+ years experience. Specializing in LLMOps, Responsible AI, and enterprise AI governance.",
+        "Engineering-led technology executive, 27 years. Governed AI and automation turned into operating capability — architecture, standards, outcomes.",
       image: DEFAULT_OG_IMAGE,
       type: "profile",
     },
@@ -662,9 +665,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
   // -------------------------------------------------------------------------
   "/about": {
     path: "/about",
-    title: "About Raghunath Chava | GenAI Platform Operations Expert",
+    title: "About Raghunath Chava | Automation, AI & Architecture",
     description:
-      "GenAI platform operations expert with 27+ years experience. Leading LLMOps, Responsible AI, and multi-tenant AI platforms.",
+      "Engineering-led technology executive, 27 years. Governed AI, agentic operations, LLMOps, and enterprise automation built to survive audit.",
     keywords: {
       primary: "Raghunath Chava",
       secondary: [
@@ -689,7 +692,7 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
     path: "/experience",
     title: "Professional Experience | Raghunath Chava",
     description:
-      "27+ years of experience. Chief of Innovation, Automation, Transformation, Architecture & AI Practice at Hitachi Digital Services; RunFabric + EAGLE (Hitachi Proprietary), full-stack AI automation, governance.",
+      "27 years across enterprise AI, automation, cloud transformation, AIOps, FinOps, and regulated BFSI — first engineering role to enterprise charter.",
     keywords: {
       primary: "Raghunath Chava experience",
       secondary: [
@@ -710,9 +713,9 @@ export const pageSEOConfigs: Record<string, PageSEO> = {
 
   "/projects": {
     path: "/projects",
-    title: "Projects & Platforms | RunFabric + EAGLE (Hitachi Proprietary) & Open-Source",
+    title: "Projects & Platforms | The Fabric Estate & Open Source",
     description:
-      "Featured: RunFabric + EAGLE ecosystem (Hitachi Proprietary) — AI-first enterprise IT automation. Plus open-source Aistrale (GenAI governance & LLMOps) and SARAISE (AI governance fabric).",
+      "An eleven-platform enterprise automation and AI estate — RunFabric, DWFabric, OpsFabric, AIOpsFabric, VoiceFabric, RouteFabric — plus open source.",
     keywords: {
       primary: "Aistrale SARAISE",
       secondary: [

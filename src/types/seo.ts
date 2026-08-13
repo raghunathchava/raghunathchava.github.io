@@ -55,6 +55,7 @@ export interface KeywordData {
  */
 export type SchemaType =
   | "Organization"
+  | "Person"
   | "Product"
   | "FAQ"
   | "BreadcrumbList"
@@ -190,7 +191,7 @@ export interface OpenGraphMeta {
   /** OG image URL */
   image?: string;
   /** OG type */
-  type?: "website" | "article" | "product";
+  type?: "website" | "article" | "product" | "profile";
   /** OG URL */
   url?: string;
 }

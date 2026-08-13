@@ -19,12 +19,7 @@ export function ProductAIReady() {
       <SEO {...seo} />
       <Navigation />
       <main>
-        <Hero
-          variant="product"
-          headline="Built for the AI-Driven Future"
-          subheadline="AI-Ready ERP Platform"
-          badge="🤖 AI-Powered"
-        />
+        <Hero variant="product" />
         <AIReadinessSection variant="dedicated" showCTAs={true} />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="max-w-4xl mx-auto space-y-12">

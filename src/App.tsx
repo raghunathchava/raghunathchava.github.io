@@ -317,8 +317,6 @@ function App() {
                     element={<AIAgentsInERP />}
                   />
                   <Route
-                  />
-                  <Route
                     path="/resources/blog/roi-calculation"
                     element={<ROICalculation />}
                   />

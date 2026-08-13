@@ -7,7 +7,7 @@ import { Hero } from "../components/Hero";
 import { Footer } from "../components/Footer";
 import { SEO } from "../components/seo/SEO";
 import { getPageSEO } from "../data/seo";
-import { Briefcase, Code, Award, BookOpen, Target, Zap, ArrowRight } from "lucide-react";
+import { Code, Shield, Target, Zap, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const seo = getPageSEO("/");
@@ -16,38 +16,62 @@ export function Home() {
   const coreFocus = [
     {
       icon: Zap,
-      title: "GenAI Platform Operations",
-      description: "End-to-end LLMOps with model onboarding, versioning, staged rollout, and inference failover",
+      title: "AI & Agentic Systems",
+      description:
+        "Agentic architecture, multi-agent orchestration, and LLMOps — versioning, staged rollout, rollback, inference failover, RAG and knowledge engineering, LLM evaluation harnesses",
+    },
+    {
+      icon: Shield,
+      title: "AI Governance & Responsible AI",
+      description:
+        "EU AI Act, ISO/IEC 42001, and NIST AI RMF alignment — graduated-autonomy ladders, human-in-the-loop gates, data-boundary enforcement, immutable audit evidence",
     },
     {
       icon: Code,
-      title: "LLMOps & Responsible AI",
-      description: "Runtime governance, prompt filtering, role-based model access, and immutable AI audit trails",
+      title: "Architecture & Engineering",
+      description:
+        "Event-driven control planes, schema-first contracts, and distributed systems across Python, TypeScript, Rust, and .NET on Azure and AWS",
     },
     {
       icon: Target,
-      title: "Multi-Tenant Reliability",
-      description: "99.9%+ uptime using Kubernetes autoscaling, health probes, and SRE practices",
-    },
-    {
-      icon: Briefcase,
-      title: "AI FinOps",
-      description: "Live monitoring of latency, token consumption, per-tenant usage, and cost-per-request",
+      title: "Operations & Delivery",
+      description:
+        "AIOps and SRE, ITIL incident/problem/change/release, ITSM automation, FinOps/TBM, and P&L ownership of global delivery at scale",
     },
   ];
 
   const keyProjects = [
     {
+      name: "RunFabric",
+      description:
+        "Event-driven execution control plane — 62 system adapters, 100 workflows, 25 operators — turning signals into governed action across enterprise systems",
+      link: "/projects",
+      badge: "Hitachi Proprietary",
+      internal: true,
+    },
+    {
+      name: "DWFabric",
+      description:
+        "Application packaging and lifecycle factory — 28 AI agents, 145 business engines, CAB governance and deployment rings",
+      link: "/projects",
+      badge: "Hitachi Proprietary",
+      internal: true,
+    },
+    {
       name: "Aistrale",
-      description: "Open-source GenAI governance & LLMOps control plane for secure model lifecycle management",
+      description:
+        "Open-source LLM engineering platform for inference management, telemetry, distributed tracing, and observability",
       link: "https://github.com/buildworksai/aistrale",
       badge: "Apache 2.0",
+      internal: false,
     },
     {
       name: "SARAISE",
-      description: "Enterprise AI governance fabric implementing RBAC, ABAC, Resource-Level Permissions, and Zero-Trust authorization",
-      link: "https://github.com/buildworksai/saraise",
-      badge: "Apache 2.0",
+      description:
+        "Enterprise ERP platform pairing intelligent automation with deep customization, built for self-hosted control over data and process",
+      link: "https://github.com/buildworksai/saraise-application",
+      badge: "Open Source",
+      internal: false,
     },
   ];
 
@@ -65,7 +89,7 @@ export function Home() {
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">Core Focus</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Governance, scale, and accountability: enterprise AI automation aligned with board-level risk, compliance, and long-term strategy
+                  Governance, scale, and accountability — enterprise AI and automation aligned to board-level risk, compliance, and long-term strategy
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -98,9 +122,9 @@ export function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Featured & Open-Source</h2>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Platforms &amp; Open Source</h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  RunFabric + EAGLE (Hitachi Proprietary): governed, audit-ready automation. <Link to="/projects" className="text-primary hover:underline">Platform details</Link>. Open-source: Aistrale & SARAISE.
+                  An eleven-platform automation and AI estate built for Hitachi Digital Services, plus open-source work. <Link to="/projects" className="text-primary hover:underline">See the full estate</Link>.
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -109,22 +133,32 @@ export function Home() {
                     key={index}
                     className="p-6 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors"
                   >
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start justify-between gap-3 mb-4">
                       <h3 className="text-2xl font-bold">{project.name}</h3>
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                      <span className="shrink-0 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
                         {project.badge}
                       </span>
                     </div>
                     <p className="text-muted-foreground mb-4">{project.description}</p>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary hover:underline"
-                    >
-                      View on GitHub
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
+                    {project.internal ? (
+                      <Link
+                        to={project.link}
+                        className="inline-flex items-center gap-2 text-primary hover:underline"
+                      >
+                        Platform details
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    ) : (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:underline"
+                      >
+                        View on GitHub
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>
@@ -138,16 +172,16 @@ export function Home() {
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">27+</div>
-                  <div className="text-sm text-muted-foreground">Years Experience</div>
+                  <div className="text-4xl font-bold text-primary mb-2">27</div>
+                  <div className="text-sm text-muted-foreground">Years in Engineering &amp; Delivery</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">99.9%+</div>
-                  <div className="text-sm text-muted-foreground">Platform Uptime</div>
+                  <div className="text-4xl font-bold text-primary mb-2">$50M</div>
+                  <div className="text-sm text-muted-foreground">Cloud Transformation Led</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">18-25%</div>
-                  <div className="text-sm text-muted-foreground">YoY Cost Reduction</div>
+                  <div className="text-4xl font-bold text-primary mb-2">99.95%+</div>
+                  <div className="text-sm text-muted-foreground">Sustained BFSI Uptime</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl font-bold text-primary mb-2">300+</div>
@@ -164,8 +198,7 @@ export function Home() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">Let's Connect</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Interested in GenAI platform operations, LLMOps, or Responsible AI? 
-                Let's discuss how we can work together.
+                Building an AI Center of Excellence, industrializing automation, or putting governance around agents already in production? Let's talk.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link

@@ -6,7 +6,7 @@ import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { SEO } from "../components/seo/SEO";
 import { getPageSEO } from "../data/seo";
-import { Mail, MapPin, Phone, Linkedin, Github } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
 
 const seo = getPageSEO("/contact");
 

@@ -22,19 +22,23 @@ interface Experience {
 const experiences: Experience[] = [
   {
     company: "Hitachi Digital Services",
-    role: "Chief of Innovation, Automation, Transformation, Architecture & AI Practice",
+    role: "Sr. Director, Intelligent Automation, AI & Innovation — Managed Services",
     period: "January 2026 - Present",
     location: "Hyderabad, Telangana, India",
     description:
-      "Accountable for the design and delivery of enterprise AI automation that transforms IT operations into controlled, auditable execution systems. Focus: operational transformation at scale — reduced risk, stronger compliance posture, faster cycle time, and automation leverage across complex enterprise ecosystems. Led the architecture and operationalization of the RunFabric + EAGLE ecosystem (Hitachi Proprietary), built for audit committees and CISOs with evidence on every execution and confidence-gated AI.",
+      "Owns the automation and AI charter end to end — strategy, architecture, engineering, and governance — for a global Managed Services practice. Built the platform estate as a small set of reusable fabrics rather than per-client bespoke work, each engineered for audit committees and CISOs: evidence on every execution, confidence-gated AI, and rollback by design.",
     achievements: [
-      "Operational efficiency at scale: manual workflows across infrastructure, application lifecycle, and service management replaced with orchestrated automation; reduced dependency on human coordination, lower friction, faster execution cycles",
-      "Auditability and regulatory alignment: every automated action produces traceable evidence for ISO 27001, ISO 42001, ISO 20000, and related standards; audit readiness by design",
-      "Controlled AI adoption: AI agents deployed with confidence thresholds and human-in-the-loop controls; AI accelerates decision-making without unmanaged risk or black-box behavior",
-      "Cross-ecosystem integration: platform integrates with ITSM, infrastructure, security, and cloud systems for a unified automation fabric across heterogeneous enterprise landscapes; reduced tool fragmentation, improved operational coherence",
-      "Built-in risk controls: automated rollback, circuit isolation, staged deployment rings, and execution validation embedded in architecture; reduced blast radius during change events, improved service continuity",
-      "Business value: lower OpEx through automation density; reduced incident resolution time via AI-assisted triage; improved governance through embedded compliance controls; delivery predictability via deterministic workflow design; scalable growth without linear headcount expansion",
-      "Leadership: automation must produce measurable outcomes; AI within defined governance boundaries; compliance engineered into systems, not documented after deployment; technology decisions that strengthen long-term enterprise stability",
+      "RunFabric — event-driven execution control plane with 62 system adapters, 100 workflows, and 25 operators, turning telemetry, incidents, requests, and business events into governed action across heterogeneous enterprise systems",
+      "DWFabric — application packaging and lifecycle factory with 28 AI agents and 145 business engines, covering discovery through packaging, testing, compliance, CAB approval, ring-based deployment, and retirement",
+      "OpsFabric — operations intelligence layer for conversational AI, RAG, operational agents, and ML pipelines, reasoning about incidents and governing AI autonomy independently of the execution bus",
+      "AIOpsFabric — seven-plane operations-intelligence platform that compresses signal noise into true incidents, investigates each with machine-checkable evidence, and remediates under a graduated, provable autonomy ladder",
+      "VoiceFabric — multilingual voice service desk holding a P50 ≤ 800 ms mouth-to-ear latency budget, with DTMF language routing and a streaming VAD → ASR → SOP-retrieval → LLM → TTS pipeline",
+      "RouteFabric — self-hosted, policy-governed AI gateway in Rust: OpenAI/Anthropic/Gemini protocol translation, declarative routing chains, circuit breakers and tiered fallback, and spend quotas enforced in the hot path",
+      "InfraFabric and FabriCat — infrastructure lifecycle intelligence, plus a host-agnostic extensibility SDK carrying 1,024 tests at 97.9% coverage under strict typing",
+      "Set a non-negotiable engineering bar estate-wide — ≥90% coverage and mutation score, strict typing, zero-bypass commit gates, ADR-governed design, and correlation_id traceability from first signal to last audit event",
+      "Founded the engineering Center of Excellence — DevEngine puts standards enforcement in every engineer's IDE, backed by an internal academy that builds the AI and automation bench",
+      "Made runtime governance a product capability, not a policy document: confidence thresholds, human-in-the-loop approval, staged rollout with rollback, and evidence that refuses to ship once its proof goes stale",
+      "Aligned every AI and automation investment to measurable outcomes — throughput, cost avoidance, risk reduction, and adoption — under standardized financial and KPI governance",
     ],
   },
   {
@@ -42,15 +46,14 @@ const experiences: Experience[] = [
     role: "Founder & Chief of AI",
     period: "February 2025 - Present",
     location: "Hyderabad, Telangana, India",
-    description: "Built and operate a multi-tenant, enterprise-grade GenAI platform for secure AI agent and workflow deployment with runtime governance, licensing, audit logging, and tenant isolation.",
+    description: "Leads design and delivery of a multi-tenant enterprise GenAI platform for secure AI agent and workflow deployment — runtime governance, licensing enforcement, tenant isolation, and end-to-end observability.",
     achievements: [
-      "Operationalized end-to-end LLMOps, including model onboarding, versioning, staged rollout, rollback, and inference failover, ensuring zero-downtime upgrades",
-      "Implemented GenAI observability and cost telemetry tracking latency, token usage, per-tenant consumption, throttling, and cost-per-request for real-time financial governance",
-      "Enforced Responsible AI at runtime via prompt filtering, role-based model access, data boundary enforcement, and full AI audit trails for regulated enterprise adoption",
-      "Delivered 99.9%+ uptime using Kubernetes autoscaling, health monitoring, and production incident, problem, and change management for AI services",
-      "Architected Aistrale (Apache 2.0) - open-source GenAI governance & LLMOps control plane",
-      "Built SARAISE (Apache 2.0) - enterprise AI governance fabric implementing RBAC, ABAC, RLP, SoD, and JIT access",
-      "Own full financial accountability for AI infrastructure, LLM consumption economics, licensing enforcement, and margin protection",
+      "Operationalized end-to-end LLMOps: model onboarding, versioning, staged rollout, rollback, and inference failover, ensuring zero-downtime upgrades",
+      "Implemented GenAI observability and cost telemetry — latency, token usage, per-tenant consumption, throttling, and cost-per-request — for real-time financial governance",
+      "Enforced Responsible AI at runtime via prompt filtering, role-based model access, data-boundary enforcement, and full AI audit trails for regulated enterprise adoption",
+      "Delivered 99.9%+ uptime using Kubernetes autoscaling, health monitoring, and ITIL-aligned incident, problem, and change management for AI services",
+      "Engineering lead for open-source governance assets (Apache 2.0) covering secure inference routing, lifecycle control, and compliance logging — including Aistrale, an LLM engineering platform for inference management, telemetry, and distributed tracing",
+      "Owns full financial accountability for AI infrastructure, LLM consumption economics, licensing enforcement, and margin protection",
     ],
   },
   {
@@ -139,6 +142,36 @@ const experiences: Experience[] = [
       "Mentored 40-person team",
     ],
   },
+  {
+    company: "Global Open Source Solutions",
+    role: "Sr. IT Engineer",
+    period: "August 2005 - September 2006",
+    location: "Abu Dhabi",
+    description: "Designed secure network and messaging solutions for regional enterprise clients.",
+    achievements: [
+      "Designed a stealth firewall and mailbox solution that lifted division revenue by 20%",
+    ],
+  },
+  {
+    company: "CMC Limited",
+    role: "IT Engineer",
+    period: "July 2001 - August 2005",
+    location: "Hyderabad",
+    description: "Built embedded sensor integration systems for data analytics and IoT edge processing.",
+    achievements: [
+      "Delivered embedded sensor integration pipelines feeding downstream analytics",
+    ],
+  },
+  {
+    company: "Navayuva Enterprises",
+    role: "Engineer",
+    period: "May 1998 - February 2001",
+    location: "Hyderabad",
+    description: "Laid early foundations in datacenter networking and proxy optimization.",
+    achievements: [
+      "Datacenter networking build-out and proxy performance optimization",
+    ],
+  },
 ];
 
 export function Experience() {
@@ -155,7 +188,7 @@ export function Experience() {
                 Professional Experience
               </h1>
               <p className="text-xl text-muted-foreground">
-                27+ years of experience across enterprise platforms, cloud, AIOps, FinOps, and regulated environments
+                27 years across enterprise AI and automation platforms, cloud transformation, AIOps, FinOps, and regulated BFSI environments — from first engineering role to owning an enterprise technology charter
               </p>
             </div>
           </div>

@@ -17,7 +17,18 @@ export function Footer() {
               <Logo size={40} showWordmark />
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
-              Chief of Innovation, Automation, Transformation, Architecture & AI Practice | Hitachi Digital Services
+              Senior Director — Automation, AI, Architecture &amp; Innovation | Hitachi Digital Services
+            </p>
+            <p className="text-sm text-muted-foreground max-w-sm">
+              Founder &amp; Chief of AI at{" "}
+              <a
+                href="https://buildworks.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                BuildWorks.AI
+              </a>
             </p>
             <div className="flex gap-4 pt-2">
               <a
@@ -121,21 +132,13 @@ export function Footer() {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              &copy; 2025 Raghunath Chava.{" "}
+              &copy; 2026 Raghunath Chava.{" "}
               <a href="https://raghunathchava.com" className="hover:underline">
-                https://raghunathchava.com
+                raghunathchava.com
               </a>
             </p>
             <p className="text-sm text-muted-foreground">
-              Founder & Chief of AI at{" "}
-              <a
-                href="https://buildworks.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
-              >
-                BuildWorks.AI
-              </a>
+              Hyderabad, India
             </p>
           </div>
         </div>
