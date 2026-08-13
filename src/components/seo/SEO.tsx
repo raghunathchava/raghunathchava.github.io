@@ -48,7 +48,9 @@ export function SEO({
     canonical || (typeof window !== "undefined" ? window.location.href : "");
 
   // Default OG image
-  const defaultOgImage = "/assets/og-default.png";
+  // Absolute URL on the origin that serves it. The previous value
+  // (/assets/og-default.png) was never built and resolved to a 404.
+  const defaultOgImage = "https://raghunathchava.github.io/og-image.png";
   const ogImageUrl = ogImage || defaultOgImage;
 
   return (

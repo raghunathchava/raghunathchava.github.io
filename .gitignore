@@ -40,3 +40,6 @@ Thumbs.db
 .playwright-mcp/
 playwright-report/
 test-results/
+
+# Build output must never be committed (Pages deploys ./dist via Actions)
+/assets/

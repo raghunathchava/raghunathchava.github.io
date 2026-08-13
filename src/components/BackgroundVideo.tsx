@@ -4,6 +4,9 @@
 import { useState, useRef, useLayoutEffect } from "react";
 
 const VIDEO_SRC = "/video.mp4";
+// First frame of the clip. Rendered by the element whenever playback has not
+// started, so the background is never blank if a browser denies autoplay.
+const VIDEO_POSTER = "/video-poster.jpg";
 
 export function BackgroundVideo() {
   const [videoError, setVideoError] = useState(false);
@@ -57,6 +60,9 @@ export function BackgroundVideo() {
     attemptPlay();
     video.addEventListener("canplay", attemptPlay);
     video.addEventListener("loadeddata", attemptPlay);
+    // Safari suspends media in background tabs and denies autoplay while the
+    // page is hidden; retry when it becomes visible again.
+    document.addEventListener("visibilitychange", attemptPlay);
 
     const handleTimeUpdate = () => {
       if (video.duration) {
@@ -112,6 +118,7 @@ export function BackgroundVideo() {
       cancelled = true;
       video.removeEventListener("canplay", attemptPlay);
       video.removeEventListener("loadeddata", attemptPlay);
+      document.removeEventListener("visibilitychange", attemptPlay);
       video.removeEventListener("timeupdate", handleTimeUpdate);
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
       mediaQuery.removeEventListener("change", handleThemeChange);
@@ -133,6 +140,7 @@ export function BackgroundVideo() {
           style={{ opacity }}
           onError={() => setVideoError(true)}
           preload="auto"
+          poster={VIDEO_POSTER}
           aria-hidden="true"
         />
       )}
